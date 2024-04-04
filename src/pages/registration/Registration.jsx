@@ -9,28 +9,40 @@ function Registration() {
   const [mobile, setMobile] = useState();
   const [shareData, setShareData] = useState(false);
 
-  // useEffect(() => {
-  // 	// console.log({ name, username, email, mobile, shareData });
-  // }, [name, username, email, mobile, shareData]);
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name || !username || !email || !mobile || !shareData) {
-      alert("Please fill all fields");
+    const regex = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if (!name) {
+      alert("Name is required!");
+      return;
+    }
+    if (!username) {
+      alert("Username is required!");
+      return;
+    }
+    if (!email) {
+      alert("Email is required!");
+      return;
+    } else if (!regex.test(email)) {
+      alert("This is not a valid email format!");
+      return;
+    }
+    if (!mobile) {
+      alert("Moblile Number is required");
+      return;
+    } else if (mobile.length < 10) {
+      alert("Please Enter correct number!");
+      return;
+    }
+    if (!shareData) {
+      alert("Check this box if you want to proceed");
       return;
     } else {
-      const currentUser = { name, username, email, mobile };
+      const currentUser = { name, username, email, mobile, shareData };
       localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
     console.log(JSON.parse(localStorage.getItem("currentUser")));
   };
-  // const handleSubmit = () => {
-  //   if (!name || !username || !email || !mobile || !consent) {
-  //     return alert("Field is required");
-  //   } else {
-  //     console.log({ name, username, email, mobile, consent });
-  //   }
-  // };
 
   return (
     <div className={style.page}>
@@ -49,38 +61,40 @@ function Registration() {
           <p>Create your new account</p>
         </div>
         <div className={style.form}>
-          <input
-            type="text"
-            placeholder="Name"
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
-          <input
-            type="text"
-            placeholder="UserName"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-          <input
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <input
-            type="tel"
-            placeholder="Mobile"
-            value={mobile}
-            onChange={(e) => setMobile(e.target.value)}
-          />
-          <div className={style.checkbox}>
+          <form>
             <input
-              type="checkbox"
-              value={shareData}
-              onChange={(e) => setShareData(e.target.checked)}
+              type="text"
+              placeholder="Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
             />
-            <label htmlFor="">Share my registration data with Superapp</label>
-          </div>
+            <input
+              type="text"
+              placeholder="UserName"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="tel"
+              placeholder="Mobile"
+              value={mobile}
+              onChange={(e) => setMobile(e.target.value)}
+            />
+            <div className={style.checkbox}>
+              <input
+                type="checkbox"
+                value={shareData}
+                onChange={(e) => setShareData(e.target.checked)}
+              />
+              <label htmlFor="">Share my registration data with Superapp</label>
+            </div>
+          </form>
         </div>
         <div className={style.footer}>
           <button onClick={handleSubmit}>SIGN UP</button>

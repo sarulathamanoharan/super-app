@@ -64,7 +64,7 @@ input[type="email"],
 input[type="tel"] {
   all: unset;
   padding: 10px;
-  margin: 0% 25%;
+  margin: 1% 25%;
   width: 50%;
   border-radius: 3px;
   color: #7c7c7c;
@@ -79,7 +79,7 @@ input[type="tel"] {
 button {
   all: unset;
   padding: 5px 12px 5px 12px;
-  margin: 0% 25%;
+  margin: 5% 25% 0% 25%;
   width: 50%;
   border-radius: 20px;
   color: #ffffff;
