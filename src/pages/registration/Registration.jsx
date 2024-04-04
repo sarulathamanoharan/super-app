@@ -7,33 +7,48 @@ function Registration() {
   const [username, setUsername] = useState();
   const [email, setEmail] = useState();
   const [mobile, setMobile] = useState();
-  const [consent, setConsent] = useState(false);
+  const [shareData, setShareData] = useState(false);
 
-  const handleSubmit = () => {
-    if (!name || !username || !email || !mobile || !consent) {
-      return alert("Field is required");
+  // useEffect(() => {
+  // 	// console.log({ name, username, email, mobile, shareData });
+  // }, [name, username, email, mobile, shareData]);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name || !username || !email || !mobile || !shareData) {
+      alert("Please fill all fields");
+      return;
     } else {
-      console.log({ name, username, email, mobile, consent });
+      const currentUser = { name, username, email, mobile };
+      localStorage.setItem("currentUser", JSON.stringify(currentUser));
     }
+    console.log(JSON.parse(localStorage.getItem("currentUser")));
   };
+  // const handleSubmit = () => {
+  //   if (!name || !username || !email || !mobile || !consent) {
+  //     return alert("Field is required");
+  //   } else {
+  //     console.log({ name, username, email, mobile, consent });
+  //   }
+  // };
 
   return (
-    <div>
-      <div>
-        <div>
+    <div className={style.page}>
+      <div className={style.left}>
+        <div className={style.leftHeader}>
           <h1>
             Discover new things on <br />
             SuperApp
           </h1>
         </div>
-        <img src={bgImage} alt="backgroundImage" />
+        <img src={bgImage} className={style.bgImage} alt="backgroundImage" />
       </div>
-      <div>
+      <div className={style.right}>
         <div>
-          <h2>Super App</h2>
+          <p className={style.para1}>Super app</p>
           <p>Create your new account</p>
         </div>
-        <div>
+        <div className={style.form}>
           <input
             type="text"
             placeholder="Name"
@@ -58,24 +73,24 @@ function Registration() {
             value={mobile}
             onChange={(e) => setMobile(e.target.value)}
           />
-          <div>
+          <div className={style.checkbox}>
             <input
               type="checkbox"
-              value={consent}
-              onChange={(e) => setConsent(e.target.value)}
+              value={shareData}
+              onChange={(e) => setShareData(e.target.checked)}
             />
             <label htmlFor="">Share my registration data with Superapp</label>
           </div>
         </div>
-        <div>
+        <div className={style.footer}>
           <button onClick={handleSubmit}>SIGN UP</button>
-          <p>
-            By clicking on Sign up. you agree to Superapp Terms and Conditions
-            of Use
+          <p className={style.para2}>
+            By clicking on Sign up. you agree to Superapp{" "}
+            <span>Terms and Conditions of Use</span>
           </p>
-          <p>
+          <p className={style.para2}>
             To learn more about how Superapp collects, uses, shares and protects
-            your personal data please head Superapp Privacy Policy
+            your personal data please head Superapp <span>Privacy Policy</span>
           </p>
         </div>
       </div>
