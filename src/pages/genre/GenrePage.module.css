@@ -1,3 +1,6 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Single+Day&display=swap");
+
 .page {
   display: flex;
   width: 100vw;
@@ -7,36 +10,113 @@
 .left {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 40vw;
   height: 100%;
-  border: 1px solid white;
+  box-sizing: border-box;
+  padding-left: 60px;
+  padding-top: 5%;
 }
 
+.leftHeader {
+  font-size: 2.5rem;
+  font-family: "Single Day", cursive;
+  color: #72db73;
+}
+
+.leftSubHeader {
+  color: white;
+  font-size: 2.5rem;
+  font-family: "DM Sans", sans-serif;
+}
+
+.selected {
+  display: flex;
+  flex-wrap: wrap;
+  /* width: 100%; */
+  width: 85%;
+}
+
+.selectedGenre {
+  padding-left: 30px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 20px;
+  /* padding: 2px 0px; */
+  padding-left: 2%;
+  margin: 8px 8px;
+  color: white;
+  background-color: #148a08;
+  flex: 0 0 calc(33.333% - 60px);
+}
+
+.selectedGenre button {
+  border: 1px solid white;
+  font-size: large;
+  background-color: transparent;
+  border: none;
+  margin: 0%;
+  color: darkgreen;
+}
+
+.warning {
+  display: flex;
+  margin-top: 10px;
+  font-size: 0.8rem;
+  align-items: center;
+  color: #ff0000;
+}
 .right {
   display: flex;
   flex-direction: column;
-  width: 50vw;
+  width: 60vw;
   height: 100%;
-  border: 1px solid white;
 }
 
 .genreGrid {
+  margin-top: 4%;
+  margin-left: 12%;
+  height: 100%;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, 180px);
+  grid-template-rows: 160px 160px 160px;
+  gap: 15px 15px;
 }
 .genreCard {
-  margin: 10px;
+  font-family: "DM Sans", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
-  background-color: green;
   color: white;
-  border: 1px solid blue;
+  border-radius: 20px;
 }
 .images {
-  width: 208px;
-  height: 118px;
+  width: 160px;
+  height: 100px;
+  margin-top: 15px;
+}
+.nextbutton {
+  width: 10%;
+  position: fixed;
+  /* bottom: 20px; */
+  bottom: 2px;
+  align-self: flex-end;
+  margin-right: 8vw;
+  font-family: "DM Sans", sans-serif;
+  border-radius: 20px;
+  background-color: #148a08;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-weight: normal;
+}
+
+.images {
+  width: 160px;
+  height: 100px;
+  margin-top: 15px;
 }
