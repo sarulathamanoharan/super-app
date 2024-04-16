@@ -28,7 +28,10 @@
   background-color: #5746ea;
   border-radius: 30px;
 }
-
+.userInfo {
+  height: 60%;
+  margin-left: 15px;
+}
 .userWidget h3 {
   margin: 0px;
   font-size: 2rem;
@@ -36,8 +39,7 @@
 }
 
 .userWidget h1 {
-  margin-left: 15px;
-  margin-top: 10px;
+  margin: 0;
   font-weight: 500;
   font-size: 3.5rem;
 }

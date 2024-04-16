@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import styles from "./NotesWidget.module.css";
+import style from "./NotesWidget.module.css";
 
 function NotesWidget() {
   const [note, setNote] = useState();
 
   useEffect(() => {
     setNote(localStorage.getItem("note", note));
-    console.log(note);
   }, []);
 
   useEffect(() => {
@@ -16,10 +15,10 @@ function NotesWidget() {
   }, [note]);
 
   return (
-    <div className={styles.notesWidget}>
-      <h1 className={styles.header}>All Notes</h1>
+    <div className={style.notesWidget}>
+      <h1 className={style.header}>All Notes</h1>
       <textarea
-        className={styles.input}
+        className={style.input}
         value={note}
         onChange={(e) => setNote(e.target.value)}
         type="text"

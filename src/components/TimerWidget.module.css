@@ -33,7 +33,7 @@
 
 .row {
   width: 100%;
-  height: 60%;
+  height: 75%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -52,7 +52,6 @@
 }
 
 .label {
-  margin-top: 30px;
   font-size: 15px;
   font-weight: 300;
   color: #949494;
@@ -61,6 +60,7 @@
 .arrowIcon {
   cursor: pointer;
   background: none;
+  height: 20px;
   color: #949494;
   font-size: 1.5rem;
 }
@@ -71,8 +71,13 @@
 }
 .action {
   width: 100%;
+  height: 25%;
   display: flex;
   justify-content: center;
+}
+
+.action button {
+  cursor: pointer;
 }
 
 .stopbutton {
@@ -80,10 +85,9 @@
   width: 35%;
   box-sizing: border-box;
   text-align: center;
-  padding: 5px;
   border-radius: 30px;
   background-color: #ff6a6a;
-  margin: 25px 5px 0 5px;
+  margin: 10px;
 }
 
 .resetbutton {
@@ -91,10 +95,9 @@
   width: 35%;
   box-sizing: border-box;
   text-align: center;
-  padding: 5px;
   border-radius: 30px;
   background-color: #ff6a6a;
-  margin: 25px 5px 0 5px;
+  margin: 10px;
 }
 
 .startbutton {
@@ -102,8 +105,7 @@
   width: 70%;
   box-sizing: border-box;
   text-align: center;
-  padding: 5px;
   border-radius: 30px;
   background-color: #ff6a6a;
-  margin: 25px 5px 0 5px;
+  margin: 10px;
 }

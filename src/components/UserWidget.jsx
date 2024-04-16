@@ -6,9 +6,11 @@ function User({ user, userAvtar, selectedGenre, genres }) {
     <div className={style.userWidget}>
       <img src={userAvtar} alt="User avatar" />
       <div className={style.userContent}>
-        <h3>{user.name}</h3>
-        <h3>{user.email}</h3>
-        <h1>{user.username}</h1>
+        <div className={style.userInfo}>
+          <h3>{user.name}</h3>
+          <h3>{user.email}</h3>
+          <h1>{user.username}</h1>
+        </div>
         {selectedGenre.length > 0 && (
           <div className={style.genreGrid}>
             {selectedGenre

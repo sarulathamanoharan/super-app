@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import styles from "./TimerWidget.module.css";
+import style from "./TimerWidget.module.css";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { TiArrowSortedDown } from "react-icons/ti";
@@ -70,9 +70,9 @@ function CountdownTimer() {
     : 0;
 
   return (
-    <div className={styles.timerWidget}>
-      <div className={styles.left}>
-        <div className={styles.circle}>
+    <div className={style.timerWidget}>
+      <div className={style.left}>
+        <div className={style.circle}>
           <div
             style={{
               height: "150px",
@@ -91,7 +91,7 @@ function CountdownTimer() {
               strokeWidth={3}
               background={false}
               styles={buildStyles({
-                rotation: 0.25,
+                rotation: 0,
 
                 // Whether to use rounded or flat corners on the ends - can use 'butt' or 'round'
                 strokeLinecap: "round",
@@ -110,83 +110,82 @@ function CountdownTimer() {
                 textColor: "#FFFFFF",
                 trailColor: "#191E39",
               })}
-              hey
             ></CircularProgressbar>
           </div>
         </div>
       </div>
-      <div className={styles.right}>
-        <div className={styles.row}>
-          <div className={styles.column}>
-            <h3 className={styles.label}>Hours</h3>
+      <div className={style.right}>
+        <div className={style.row}>
+          <div className={style.column}>
+            <h3 className={style.label}>Hours</h3>
             <button
-              className={styles.arrowIcon}
               onClick={() => increment(setHours)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedUp />
             </button>
-            <div className={styles.count}>
+            <div className={style.count}>
               {hours.toString().padStart(2, "0")}
             </div>
             <button
-              className={styles.arrowIcon}
               onClick={() => decrement(setHours)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedDown />
             </button>
           </div>
-          <div className={styles.colon}>:</div>
-          <div className={styles.column}>
-            <h3 className={styles.label}>Minutes</h3>
+          <div className={style.colon}>:</div>
+          <div className={style.column}>
+            <h3 className={style.label}>Minutes</h3>
             <button
-              className={styles.arrowIcon}
               onClick={() => increment(setMinutes)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedUp />
             </button>
-            <div className={styles.count}>
+            <div className={style.count}>
               {minutes.toString().padStart(2, "0")}
             </div>
             <button
-              className={styles.arrowIcon}
               onClick={() => decrement(setMinutes)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedDown />
             </button>
           </div>
-          <div className={styles.colon}>:</div>
-          <div className={styles.column}>
-            <h3 className={styles.label}>Seconds</h3>
+          <div className={style.colon}>:</div>
+          <div className={style.column}>
+            <h3 className={style.label}>Seconds</h3>
             <button
-              className={styles.arrowIcon}
               onClick={() => increment(setSeconds)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedUp />
             </button>
-            <div className={styles.count}>
+            <div className={style.count}>
               {seconds.toString().padStart(2, "0")}
             </div>
             <button
-              className={styles.arrowIcon}
               onClick={() => decrement(setSeconds)}
+              className={style.arrowIcon}
             >
               <TiArrowSortedDown />
             </button>
           </div>
         </div>
-        <div className={styles.action}>
+        <div className={style.action}>
           {isActive && (
             <>
-              <button className={styles.stopbutton} onClick={stopTimer}>
+              <button className={style.stopbutton} onClick={stopTimer}>
                 Stop
               </button>
-              <button className={styles.resetbutton} onClick={resetTimer}>
+              <button className={style.resetbutton} onClick={resetTimer}>
                 Reset
               </button>
             </>
           )}
           {!isActive && (
-            <button className={styles.startbutton} onClick={startTimer}>
+            <button className={style.startbutton} onClick={startTimer}>
               Start
             </button>
           )}
